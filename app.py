@@ -15,6 +15,9 @@ Navigation pages:
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
+if not os.path.exists("data/transactions.csv"):
+    os.system("python data/generate_data.py")
 import pickle
 import os
 import io
