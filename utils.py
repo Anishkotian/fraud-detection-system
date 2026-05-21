@@ -295,15 +295,18 @@ def model_comparison_chart(results: dict) -> go.Figure:
             text=[f"{v:.3f}" for v in values],
             textposition="outside",
         ))
-    fig.update_layout(
-        **PLOTLY_TEMPLATE["layout"].to_plotly_json(),
-        barmode="group",
-        title="Model Performance Comparison",
-        yaxis=dict(title="Score", range=[0, 1.15], gridcolor=COLORS["grid"]),
-        legend=dict(orientation="h", y=1.15),
-        margin=dict(t=80, b=40, l=50, r=20),
-        height=420
-    )
+  fig.update_layout(
+    paper_bgcolor=COLORS["bg"],
+    plot_bgcolor=COLORS["card"],
+    font=dict(color=COLORS["text"], family="Inter, sans-serif"),
+    barmode="group",
+    title="Model Performance Comparison",
+    yaxis=dict(title="Score", range=[0, 1.15], gridcolor=COLORS["grid"]),
+    xaxis=dict(gridcolor=COLORS["grid"]),
+    legend=dict(orientation="h", y=1.15),
+    margin=dict(t=80, b=40, l=50, r=20),
+    height=420
+)
     return fig
 
 
